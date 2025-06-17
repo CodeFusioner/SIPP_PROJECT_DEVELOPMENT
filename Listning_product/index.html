@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Search</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h2>Search for Products</h2>
+
+  <input type="text" id="searchInput" placeholder="Enter product name">
+  <button onclick="searchProduct()">Search</button>
+
+  <!-- 🔽 Add this dropdown below the search button -->
+  <select id="sortSelect" onchange="sortProducts()">
+    <option value="">Sort By</option>
+    <option value="price-asc">Price: Low to High</option>
+    <option value="price-desc">Price: High to Low</option>
+    <option value="rating-asc">Rating: Low to High</option>
+    <option value="rating-desc">Rating: High to Low</option>
+  </select>
+
+  <p class="error" id="errorMsg"></p>
+
+  <div class="product-container" id="productResults"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
