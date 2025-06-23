@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= vehicle.name %> Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8">
+        <div class="max-w-3xl mx-auto">
+            <div class="flex justify-between items-center mb-6">
+                <h1 class="text-3xl font-bold"><%= vehicle.name %></h1>
+                <a href="/" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 transition">Back to List</a>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="<%= vehicle.image %>" alt="<%= vehicle.name %>" class="w-full h-64 object-cover">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-xl font-semibold">Brand: <%= vehicle.brand %></h2>
+                        <p class="text-2xl font-bold text-blue-600">$<%= vehicle.price.toLocaleString() %></p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold mb-2">Description</h3>
+                        <p class="text-gray-700"><%= vehicle.description %></p>
+                    </div>
+                    
+                    <div class="flex space-x-4">
+                        <a href="/vehicles/<%= vehicle._id %>/edit" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 transition">Edit</a>
+                        <form action="/vehicles/<%= vehicle._id %>?_method=DELETE" method="POST" class="inline">
+                            <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
